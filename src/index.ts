@@ -1,6 +1,6 @@
 import { Script, runInNewContext } from "vm";
 import { readFileSync, statSync, Stats } from "fs";
-import { join, dirname, relative, basename } from "path";
+import { join, dirname, relative, basename, extname } from "path";
 import { TSROptions } from "./options";
 import * as util from './util';
 
@@ -55,7 +55,7 @@ function compileTS (module: NodeModule) {
   var exitCode = 0;
   var tmpDir = join(getTsRoot(), options.tmpDir);
   var relativeFolder = dirname(relative(getTsRoot(), module.filename));
-  var jsname = join(tmpDir, relativeFolder, basename(module.filename, ".ts") + ".js");
+  var jsname = join(tmpDir, relativeFolder, basename(module.filename, extname(module.filename)) + ".js");
 
   if (!util.isModified(module.filename, jsname)) {
     return jsname;
