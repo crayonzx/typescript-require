@@ -34,6 +34,7 @@
     "prepare": "npm run clean && npm run build",
     "prepublish": "npm run clean && npm run build"
   },
+  "files": ["lib", "register", "index.js", "index.d.ts"],
   "devDependencies": {
     "@types/node": "6",
     "chai": "^1.10.0",
