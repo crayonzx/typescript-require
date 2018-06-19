@@ -98,7 +98,7 @@ function compileTS (module: NodeModule) {
   }
 
   if (!projectBuilt) {
-    console.log(argv);
+    // console.log(argv);
     var proc = util.merge(util.merge({}, process), {
       argv: util.compact(argv),
       exit: function(code: number) {
