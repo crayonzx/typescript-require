@@ -28,13 +28,19 @@
     "require"
   ],
   "scripts": {
-    "test": "mocha"
+    "build": "npm run clean && tsc",
+    "clean": "rimraf lib && rimraf tmp/tsreq",
+    "test": "rimraf tmp/tsreq && mocha",
+    "prepare": "npm run clean && npm run build",
+    "prepublish": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@types/node": "6",
     "chai": "^1.10.0",
     "cz-conventional-changelog": "^2.1.0",
-    "mocha": "^2.0.1"
+    "mocha": "^2.0.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^2"
   },
   "optionalDependencies": {},
   "peerDependencies": {

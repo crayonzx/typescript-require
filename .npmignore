@@ -1,6 +1,7 @@
 Gulpfile.ts
 scripts
 src
+lib
 tests
 tmp
 tslint.json
