@@ -116,6 +116,7 @@ function compileTS (module: NodeModule) {
       module: module,
       Buffer: Buffer,
       setTimeout: setTimeout,
+      clearTimeout: clearTimeout,
       __filename: tsc,
       __dirname: dirname(tsc)
     };
