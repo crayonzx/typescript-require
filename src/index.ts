@@ -117,6 +117,7 @@ function compileTS (module: NodeModule) {
       Buffer: Buffer,
       setTimeout: setTimeout,
       clearTimeout: clearTimeout,
+      console: console,
       __filename: tsc,
       __dirname: dirname(tsc)
     };
@@ -143,6 +144,12 @@ function runJS (jsname: string, module: any) {
   for (var k in global) {
     sandbox[k] = (<any>global)[k];
   }
+
+  /** This can enumerate non-enumerable properties. */
+  // Object.getOwnPropertyNames(global).forEach(function (k) {
+  //   sandbox[k] = (<any>global)[k];
+  // });
+  sandbox.console = console;
 
   sandbox.require = module.require.bind(module);
   sandbox.require.cache = require.cache;
